@@ -33,6 +33,15 @@ class Araba:
         rastgeleRenkIndex = random.randint(0,len(renkler)-1)
         self.renk = renkler[rastgeleRenkIndex]
 
+    def motorGucuArttir(self,gucDegeri):
+        self.motorGucu += gucDegeri
+
+    def beygirGucuArttir(self,beygirDegeri):
+        self.beygirGucu += beygirDegeri
+
+    def kmSifirla(self):
+        self.km = 0
+
 araba1 = Araba(700,3500,"siyah",15000)
 
 while True:
@@ -62,6 +71,19 @@ while True:
         del araba1
         print("araba silindiği için işlem sonlandırıldı")
         break
+    elif secim == 4:
+        gucDegeri = int(input("aracın yeni motor gücüne eklemek istediğiniz gücü giriniz: "))
+        araba1.motorGucuArttir(gucDegeri)
+        print("aracın yeni motor gücü",gucDegeri)
+    elif secim == 5:
+        beygirDegeri = int(input("aracın beygirine gücüne eklenecek gücü giriniz: "))
+        araba1.beygirGucuArttir(beygirDegeri)
+        print("aracın yeni beygir gücü",beygirDegeri)
+    elif secim == 6:
+        print("km bilgisi sıfırlanıyor...")
+        time.sleep(2)
+        print("km bilgisi başarıyla sıfırlandı")
+        araba1.kmSifirla()
     elif secim == 7:
         deger = int(input("eklenecek değeri yaznız: "))
         araba1.kmArttir(deger)
